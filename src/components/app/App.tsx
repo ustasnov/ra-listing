@@ -1,22 +1,12 @@
-import ListingInterface from "../../model/listinginterface";
+import ItemInterface from "../../model/iteminterface";
 import { Listing } from '../listing/Listing';
-import { data } from "../../model/etsy";
-
+import data from "../../model/etsy.json";
+import './App.css';
 
 function App() {
-
-  /*
-  const stringData = fs.readFileSync("../../model/etsy.json", {
-    encoding: "utf8",
-    flag: "r",
-   });
-   */
-  const listingData: ListingInterface = { items: JSON.parse(data) };
-  //const listingData: ListingInterface = data;
-
   return (
     <>
-      <Listing items={listingData.items} />
+      <Listing items={data as ItemInterface[]} />
     </>
   )
 }

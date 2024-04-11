@@ -7,6 +7,7 @@ export const Listing: FC<ListingInterface> = ({ items }) => {
   return (
     <div className="item-list">
       {items.map((item) => <Item
+        key={item.listing_id} 
         listing_id={item.listing_id}
         url={item.url}
         MainImage={item.MainImage}

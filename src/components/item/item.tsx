@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import ItemInterface from "../../model/iteminterface";
 
-export const Item: FC<ItemInterface> = ({
-  listing_id, url, MainImage, title, currency_code, price, quantity }) => {
+export const Item: FC<ItemInterface> = (
+  { url, MainImage, title, currency_code, price, quantity }) => {
 
   function getTitle(titl: string) {
+    if (!titl) {
+      return "";
+    }
     let result = titl;
     if (titl.length > 50) {
       result = titl.slice(0, 50) + "...";
@@ -45,7 +48,7 @@ export const Item: FC<ItemInterface> = ({
     <div className="item">
       <div className="item-image">
         <a href={url}>
-          <img src={MainImage.url_570xN}></img>
+          <img src={MainImage ? MainImage.url_570xN: ""}></img>
         </a>
       </div>
       <div className="item-details">
